@@ -11,8 +11,8 @@ source:
   sha256: 613a149902cfb597e0e567ec6bf486914cf4acfa34e4b483ff43b0832e4752ef
 
 build:
-  number: 0
-  skip: True  # [not linux]
+  number: 1
+  skip: true  # [not linux]
 
 requirements:
   build:
@@ -21,12 +21,12 @@ requirements:
     - cmake
     - make
     - pkg-config
-    - {{ cdt('libx11-devel') }}  # [linux]
-    - {{ cdt('libdrm-devel') }}  # [linux]
   host:
     - llvmdev 6.*
     - clangdev 6.*
     - ocl-icd
+    - xorg-libx11                # [linux]
+    - libdrm                     # [linux]
 
 test:
   commands:
